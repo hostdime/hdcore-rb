@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ethan.p@hostdime.com"]
   spec.description   = "A basic wrapper for HostDime's customer portal 'Core' API"
   spec.summary       = ""
-  spec.homepage      = "https://github.com/hostdime/hdcore"
+  spec.homepage      = "https://github.com/hostdime/hdcore-rb"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
