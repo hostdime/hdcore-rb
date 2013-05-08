@@ -1,6 +1,6 @@
 # Hdcore
 
-A basic wrapper for HostDime's customer portal 'Core' API.
+A basic wrapper for HostDime.com's customer portal 'Core' API.
 
 ## Installation
 

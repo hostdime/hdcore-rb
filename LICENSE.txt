@@ -1,4 +1,4 @@
-Copyright (c) 2013 Ethan Pemble
+Copyright (c) 2013 HostDime.com, Inc.
 
 MIT License
 
