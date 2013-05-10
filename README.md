@@ -1,5 +1,7 @@
 # Hdcore
 
+![image](https://travis-ci.org/hostdime/hdcore-rb.png)
+
 A basic wrapper for HostDime.com's customer portal 'Core' API.
 
 ## Installation
@@ -18,6 +20,18 @@ Or install it yourself as:
 
 ## Usage
 
+Before use, the library must be configured with your client key:
+
+    Hdcore.configure(public_key: 'foobar', private_key: 'fazbaz')
+    # or perhaps
+    Hdcore.configure_with(path_to_some_yml_config_file)
+
+API calls are then made statically, and return HTTParty response objects.
+
+	# An example of an action with parameters
+    Hdcore::Request.call('server.get', {:cuid => 'S37'})
+
+For details on API specification, visit
 https://api.hostdime.com/
 
 ## Contributing
