@@ -1,11 +1,11 @@
-require_relative '../../../lib/hdcore'
+require 'spec_helper'
 
 describe Hdcore::Request do
 
   describe '.call' do
     it 'initializes and sends GET request to API endpoint' do
       test_action = 'some.action'
-      Hdcore::Request.stub(:query_string).and_return(params = {some: 'params'})
+      Hdcore::Request.stub(:query_string).and_return(params = {:some => 'params'})
       Hdcore::Request.should_receive(:init)
       Hdcore::Request.should_receive(:get).with("/call/api_action/#{test_action}/format/json/", params)
       Hdcore::Request.call(test_action, {})
@@ -15,8 +15,8 @@ describe Hdcore::Request do
 
   describe '.query_string' do
     it 'returns parameters merged with generated api parameters' do
-      Hdcore::Request.stub(:generate_api_params).and_return(api_params = {some: 'api_params'})
-      actual = Hdcore::Request.send(:query_string, 'some.action', params = {some_other: 'params'})
+      Hdcore::Request.stub(:generate_api_params).and_return(api_params = {:some => 'api_params'})
+      actual = Hdcore::Request.send(:query_string, 'some.action', params = {:some_other => 'params'})
       actual.should == params.merge(api_params)
     end
   end
@@ -61,7 +61,7 @@ describe Hdcore::Request do
                                                           uuid,
                                                           private_key,
                                                           action = 'some.action',
-                                                          (params = {some: 'optional_params'}).to_json
+                                                          (params = {:some => 'optional_params'}).to_json
                                                         )
 
       Hdcore::Request.send(:generate_api_params, action, params)

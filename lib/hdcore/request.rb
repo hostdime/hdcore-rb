@@ -56,14 +56,14 @@ module Hdcore
       # @return [Hash] required api parameters: {:api_key, :api_unique, :api_timestamp, :api_hash}
       def generate_api_params(action, params = {})
         {
-          api_key:       public_key,
-          api_unique:    uuid = generate_uuid,
-          api_timestamp: timestamp = Time.now.to_i,
-          api_hash:      generate_hash( timestamp,
-                                        uuid,
-                                        private_key,
-                                        action,
-                                        params.to_json )
+          :api_key       => public_key,
+          :api_unique    => uuid = generate_uuid,
+          :api_timestamp => timestamp = Time.now.to_i,
+          :api_hash      => generate_hash( timestamp,
+                                           uuid,
+                                           private_key,
+                                           action,
+                                           params.to_json )
         }
       end
 

@@ -2,6 +2,7 @@ require 'hdcore/version'
 require 'httparty'
 require 'logger'
 require 'yaml'
+require 'rubygems'
 require 'json'
 require 'digest/sha2'  # to generate SHA256 hash
 require 'securerandom' # to generate v4 UUID
