@@ -7,8 +7,8 @@ describe Hdcore do
       Hdcore.config.keys.should == [:api_endpoint, :public_key, :private_key]
     end
 
-    it 'returns default [:api_endpoint] => "https://core.hostdime.com/api/v1"' do
-      Hdcore.config[:api_endpoint].should == 'https://core.hostdime.com/api/v1'
+    it 'returns default [:api_endpoint] => "https://api.hostdime.com/v1"' do
+      Hdcore.config[:api_endpoint].should == 'https://api.hostdime.com/v1'
     end
 
     it 'returns default [:public_key] => nil' do

@@ -10,7 +10,7 @@ module Hdcore
       # @return [HTTParty::Response]
       def call(action, params = {})
         init()
-        self.post("/call/api_action/#{action}/format/json/", query_string(action, params))
+        self.post("/#{action.gsub('.','/')}.json", query_string(action, params))
       end
 
       private

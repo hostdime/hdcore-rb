@@ -4,7 +4,7 @@ module Hdcore
 
   # Default configuration values
   @config = {
-              :api_endpoint => 'https://core.hostdime.com/api/v1',
+              :api_endpoint => 'https://api.hostdime.com/v1',
               :public_key   => nil,
               :private_key  => nil
             }

@@ -7,7 +7,7 @@ describe Hdcore::Request do
       test_action = 'some.action'
       Hdcore::Request.stub(:query_string).and_return(params = {:some => 'params'})
       Hdcore::Request.should_receive(:init)
-      Hdcore::Request.should_receive(:post).with("/call/api_action/#{test_action}/format/json/", params)
+      Hdcore::Request.should_receive(:post).with("/#{test_action.gsub('.','/')}.json", params)
       Hdcore::Request.call(test_action, {})
     end
   end
