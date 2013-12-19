@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Hdcore do
 
   describe '.config' do
-    it 'returns hash with expected keys [:api_endpoint, :public_key, :private_key]' do
-      Hdcore.config.keys.should == [:api_endpoint, :public_key, :private_key]
+    it 'returns hash with expected keys [:api_endpoint, :public_key, :private_key, :time_zone]' do
+      Hdcore.config.keys.should == [:api_endpoint, :public_key, :private_key, :time_zone]
     end
 
     it 'returns default [:api_endpoint] => "https://api.hostdime.com/v1"' do
@@ -17,6 +17,10 @@ describe Hdcore do
 
     it 'returns default [:private_key] => nil' do
       Hdcore.config[:private_key].should == nil
+    end
+
+    it 'returns default [:time_zone] => US/Eastern' do
+      Hdcore.config[:time_zone].should == 'US/Eastern'
     end
   end
 

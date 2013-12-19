@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 2.13"
   spec.add_dependency "httparty", "~> 0.11"
   spec.add_dependency "json", "~> 1.5"
+  spec.add_dependency "active_support", "~> 3.0"
 end
