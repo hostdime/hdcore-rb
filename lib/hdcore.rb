@@ -6,7 +6,6 @@ require 'rubygems'
 require 'json'
 require 'digest/sha2'  # to generate SHA256 hash
 require 'securerandom' # to generate v4 UUID
-require 'active_support/time'
 
 Dir[File.dirname(__FILE__) + '/hdcore/*.rb'].each do |file|
   require file

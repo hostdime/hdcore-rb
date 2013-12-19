@@ -6,8 +6,7 @@ module Hdcore
   @config = {
               :api_endpoint => 'https://api.hostdime.com/v1',
               :public_key   => nil,
-              :private_key  => nil,
-              :time_zone    => 'US/Eastern'
+              :private_key  => nil
             }
   @valid_config_keys = @config.keys
 

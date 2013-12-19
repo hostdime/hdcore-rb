@@ -59,20 +59,13 @@ module Hdcore
         {
           :api_key       => public_key,
           :api_unique    => uuid = generate_uuid,
-          :api_timestamp => timestamp = generate_timestamp,
+          :api_timestamp => timestamp = Time.now.to_i,
           :api_hash      => generate_hash( timestamp,
                                            uuid,
                                            private_key,
                                            action,
                                            params.to_json )
         }
-      end
-
-
-      #
-      def generate_timestamp
-        zone = Hdcore.config[:time_zone]
-        Time.use_zone(zone) { Time.now.to_i }
       end
 
       # @private
