@@ -10,7 +10,8 @@ module Hdcore
       # @return [HTTParty::Response]
       def call(action, params = {})
         init()
-        self.post("/#{action.gsub('.','/')}.json", :query => query_string(action, params))
+        post "/#{action.gsub('.','/')}.json",
+             :body => full_api_parameters(action, params)
       end
 
       private
@@ -46,7 +47,7 @@ module Hdcore
       # @param [String] action The full API action
       # @param [Hash] params The given action parameters
       # @return [Hash] Full set of parameters, including generated api parameters
-      def query_string(action, params = {})
+      def full_api_parameters(action, params = {})
         params.merge generate_api_params(action, params)
       end
 

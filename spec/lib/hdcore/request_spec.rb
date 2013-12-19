@@ -5,18 +5,18 @@ describe Hdcore::Request do
   describe '.call' do
     it 'initializes and sends POST request to API endpoint' do
       test_action = 'some.action'
-      Hdcore::Request.stub(:query_string).and_return(params = {:some => 'params'})
+      Hdcore::Request.stub(:full_api_parameters).and_return(params = {:some => 'params'})
       Hdcore::Request.should_receive(:init)
-      Hdcore::Request.should_receive(:post).with("/#{test_action.gsub('.','/')}.json", params)
+      Hdcore::Request.should_receive(:post).with("/#{test_action.gsub('.','/')}.json", :body => params)
       Hdcore::Request.call(test_action, {})
     end
   end
 
 
-  describe '.query_string' do
+  describe '.full_api_parameters' do
     it 'returns parameters merged with generated api parameters' do
       Hdcore::Request.stub(:generate_api_params).and_return(api_params = {:some => 'api_params'})
-      actual = Hdcore::Request.send(:query_string, 'some.action', params = {:some_other => 'params'})
+      actual = Hdcore::Request.send(:full_api_parameters, 'some.action', params = {:some_other => 'params'})
       actual.should == params.merge(api_params)
     end
   end
