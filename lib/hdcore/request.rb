@@ -2,6 +2,7 @@
 module Hdcore
   class Request
     include HTTParty
+    debug_output $stdout
 
     class << self
 
@@ -64,7 +65,7 @@ module Hdcore
                                            uuid,
                                            private_key,
                                            action,
-                                           params.to_json )
+                                           params.to_json.to_json )
         }
       end
 

@@ -61,7 +61,7 @@ describe Hdcore::Request do
                                                           uuid,
                                                           private_key,
                                                           action = 'some.action',
-                                                          (params = {:some => 'optional_params'}).to_json
+                                                          (params = {:some => 'optional_params'}).to_json.to_json
                                                         )
 
       Hdcore::Request.send(:generate_api_params, action, params)
