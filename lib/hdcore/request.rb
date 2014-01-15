@@ -2,7 +2,6 @@
 module Hdcore
   class Request
     include HTTParty
-    debug_output $stdout
 
     class << self
 
